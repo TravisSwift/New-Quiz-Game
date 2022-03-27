@@ -14,15 +14,22 @@
   
   <body>
    
-    <header>
+    <header class="header">
       <!--Page Title-->
       <h2 class="title">A Super Cool Quiz Game!</h2>
-      <!-- Start Quiz Button-->
-     <!-- <button class="btn">Start Quiz</button> -->
-    </header> 
-    
+      </header> 
+      
+      <div class="reset">
+        <h3>Time Remaining</h3>
+        <div id="countdown" class="timer">0:00</div>
+        </div>
+        <button id="start-btn" class="start-btn btn"><h1>START!</h1></button>
+ 
 
     <div class="container">
+      <p class="instructions">Answer as many questions as you can before time runs out. 
+        Wrong answers will reduce your available time to answer
+      </p>
       <div id="question-container" class="hide">
         <div id="question">Question</div>
         <div id="answer-buttons" class="btn-grid">         
@@ -33,8 +40,8 @@
           </div>
         </div>
       
-      <div class="controls">
-        <button id="start-btn" class="start-btn btn">Start</button>
+        
+      <div class="controls">        
         <button id="next-btn" class="next-btn btn hide">Next</button>    
       </div>
     </div>

@@ -1,101 +1,120 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.title {
-    background-color: brown;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 :root {
-    ---hue-neutral: 200;
-    --hue-wrong: 0;
-    --hue-correct: 145;
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
 }
 
-document {
-    background-color: aqua  ;
-}
-
-.body {
-    background-color: blue;
-}
-
-.body {
-    /* --hue: var(--hue-nuetral); */
-    background-color: yellowgreen;
+body {
+    --hue: var(--hue-neutral);
     padding: 0;
     margin: 0;
-    display: flex;
+   /* display: flex; */
     width: 100%;
     height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: hsl(var(--hue), 100, 20%);
-} 
+    /* justify-content: center;
+   align-items: center; */
+    background-color: lightblue;
+  } 
 
-.body.correct {
+body.correct {
     --hue: var(--hue-correct);
-}
-
-.body.wrong {
+  }
+  
+  body.wrong {
     --hue: var(--hue-wrong);
-}
+  }
 
 .container {
-    width: 800px;
-    max-width: 80%;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 0 10px 3px;
+  justify-content:center
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 3px;
 }
 
 .btn-grid {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 10px;
-    margin: 20px 0;
-
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
+  background-color: rgb(173, 204, 230);
 }
 
 .btn {
-    /* --hue: var(--hue-nuetral); */
-    color: blue;
-    border: 1px solid hsl(var(--hue), 100%, 30%);
-    background-color: hsl(var(--hue), 100%, 50%);
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: black;
-    outline: none;
+  --hue: var(--hue-nuetral);
+  border: 1px solid hsl(var(--hue), 100%, 30%);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: black;
+  outline: none;
 }
 
 .btn:hover {
-    border-color: black;
+  border-color: black;
 }
 
 .btn.correct {
-    --hue: var(--hue-correct);
-    color: black;
+  --hue: var(--hue-correct);
+  color: black;
 }
 
 .btn.wrong {
-    /* --hue: var(--hue-wrong); */
-    background-color: red;
+  --hue: var(--hue-wrong);
 }
 
-.start-btn, next-btn {
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 10px 20px;
+.start-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.start-btn,
+.next-btn {
+  font-size: medium;
+  font-weight: bold;
+  padding: 10px 20px;
 }
 
 .controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+
+h3 {
     display: flex;
     justify-content: center;
-    align-items: center;
+  border: 1px;
+  border-color: black;
+}
+
+.title {
+  background-image: linear-gradient(to right, lightblue, darkblue);
+}
+
+.timer {
+    padding: 10px;
+    margin: 5px;
+}
+
+#countdown {
+    display: flex;
+    justify-content: center;
 }
  
- .hide {
-     display: none;
- }
+ 
+

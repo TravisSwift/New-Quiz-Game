@@ -4,6 +4,9 @@ const questionContainerElement = document.getElementById("question-container")
 const questionElement = document.getElementById("question")
 const answerButtonsElement = document.getElementById("answer-buttons")
 
+const countDownTimer = document.getElementById("countdown")
+const instructions = document.getElementById("instructions")
+
 let shuffledQuestions, currentQuestionIndex
 // why is this not closed?
 
@@ -13,6 +16,8 @@ nextButton.addEventListener("click", () => {
     setNextQuestion()
 })
 
+
+// start game and hide start buttong
 function startGame() {
     console.log("Started")
     startButton.classList.add("hide")
@@ -20,12 +25,24 @@ function startGame() {
     currentQuestionIndex = 0
     questionContainerElement.classList.remove("hide")
     setNextQuestion()
-}
+    startTimer();
+    print();
+    }
+
+// Shufle questions in a different order each round
 
 function setNextQuestion() {
     resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
+
+// Hide instructions in container after round starts
+
+function hideInstructions() {
+    instructions.classList.remove("hide")
+}
+
+// display questions after start button has been clicked
 
 function showQuestion(question) {
     questionElement.innerText = question.question
@@ -41,6 +58,8 @@ function showQuestion(question) {
     })
 }
 
+// end game and start over
+
 function resetState() {
     clearStatusClass(document.body)
     nextButton.classList.add("hide")
@@ -49,6 +68,7 @@ function resetState() {
     }
 }
 
+// random question to be displayed
 function selectAnswer(e) {
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct
@@ -59,11 +79,11 @@ function selectAnswer(e) {
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove("hide")
     
-    startButton.innerText = "Restart"
+    startButton.innerText = "Restart Quiz"
     startButton.classList.remove("hide")
-    }
+    } 
 }
-
+// chamge body color if answer is right or wrong - can't get it too work
 function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
@@ -73,11 +93,14 @@ function setStatusClass(element, correct) {
     }
  }
 
+ // clear style when next question is displayed
  function clearStatusClass(element) {
      element.classList.remove("correct")
      element.classList.remove("wrong")
  }
 
+
+ // quiz questions
 const questions = [
     {
         question: "The getElementById() is:",
@@ -88,7 +111,7 @@ const questions = [
             { text: "a DOM method used to show images and text.", correct: false },
         ]
     }, 
-    // what does the comma do?
+    
 {
     question: "In JavaScript, an array is:",
     answers: [
@@ -110,12 +133,23 @@ const questions = [
 {
     question: "The getElementById() method:",
     answers: [
-        { text: "returns a css class with a specified class RGB value.", correct: false },
+        { text: "returns a css class with a specified RGB value.", correct: false },
         { text: "returns a collection of elements with a specified name.", correct: false },
         { text: "returns a child element with a given tag name.", correct: false },
         { text: "returns an element with a specified value.", correct: true }
     ]
 }, 
+
+{
+    question: "The select element defines:",
+    answers: [        
+        { text: "an array", correct: false },
+        { text: "a dropdown list", correct: true },
+        { text: "a string", correct: false },
+        { text: "an elements class.", correct: false }
+    ]
+}, 
+
 {
     question: "The if/else statement executes a block of code if a specified condition is:",
     answers: [
@@ -127,4 +161,22 @@ const questions = [
 }
 ]
 
+// timer
+
+document.getElementById("start-btn").addEventListener("click", function(){
+    var timeleft = 120;
+
+    var downloadTimer = setInterval(function function1(){
+    document.getElementById("countdown").innerHTML = timeleft + 
+    "&nbsp"+"seconds remaining";
+
+    timeleft -= 1;
+    if(timeleft <= 0){
+        clearInterval(downloadTimer);
+        document.getElementById("countdown").innerHTML = "Time is up!"
+    }
+    }, 1000);
+
+    console.log(countdown);
+});
  
