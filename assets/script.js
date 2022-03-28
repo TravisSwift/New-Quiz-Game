@@ -1,4 +1,5 @@
 const startButton = document.getElementById("start-btn")
+const restartButton = document.getElementById("restart-btn")
 const nextButton = document.getElementById("next-btn")
 const questionContainerElement = document.getElementById("question-container")
 const questionElement = document.getElementById("question")
@@ -16,6 +17,14 @@ nextButton.addEventListener("click", () => {
     currentQuestionIndex++
     setNextQuestion()
 })
+
+// restartButton.addEventListener("click", startGame)
+// nextButton.addEventListener("click", () => {
+//     currentQuestionIndex++
+//     setNextQuestion()
+// })
+
+
 
 
 // start game and hide start button
@@ -70,6 +79,8 @@ function resetState() {
     }
 }
 
+
+
 // random question to be displayed
 function selectAnswer(e) {
     const selectedButton = e.target
@@ -83,9 +94,17 @@ function selectAnswer(e) {
     
     startButton.innerText = "Restart Quiz"
     startButton.classList.remove("hide")
-    gameover
-    } 
+        } 
 }
+
+function retstart() {
+restartButton.addEventListener("click", startGame)
+clearStatusClass(document.body)
+while (answerButtonsElement.firstChild) { 
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+    }
+}
+
 // chamge body color if answer is right or wrong - can't get it too work
 function setStatusClass(element, correct) {
     clearStatusClass(element)
@@ -180,6 +199,7 @@ document.getElementById("start-btn").addEventListener("click", function(){
         { alert("Time's up!"); }
     }
     }, 1000);
+    
 
 
     console.log(countdown);
