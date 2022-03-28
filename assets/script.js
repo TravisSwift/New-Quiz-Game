@@ -6,6 +6,7 @@ const answerButtonsElement = document.getElementById("answer-buttons")
 
 const countDownTimer = document.getElementById("countdown")
 const instructions = document.getElementById("instructions")
+const gameOver = document.getElementById("gameover-btn")
 
 let shuffledQuestions, currentQuestionIndex
 // why is this not closed?
@@ -17,10 +18,11 @@ nextButton.addEventListener("click", () => {
 })
 
 
-// start game and hide start buttong
+// start game and hide start button
 function startGame() {
     console.log("Started")
     startButton.classList.add("hide")
+    // instructions.classList.add("hide")
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove("hide")
@@ -81,6 +83,7 @@ function selectAnswer(e) {
     
     startButton.innerText = "Restart Quiz"
     startButton.classList.remove("hide")
+    gameover
     } 
 }
 // chamge body color if answer is right or wrong - can't get it too work
@@ -164,19 +167,25 @@ const questions = [
 // timer
 
 document.getElementById("start-btn").addEventListener("click", function(){
-    var timeleft = 120;
+    var timeleft = 60;
 
     var downloadTimer = setInterval(function function1(){
     document.getElementById("countdown").innerHTML = timeleft + 
     "&nbsp"+"seconds remaining";
 
     timeleft -= 1;
-    if(timeleft <= 0){
+    if (timeleft <= 0) {
         clearInterval(downloadTimer);
         document.getElementById("countdown").innerHTML = "Time is up!"
+        { alert("Time's up!"); }
     }
     }, 1000);
 
+
     console.log(countdown);
 });
+
+ 
+
+ 
  
